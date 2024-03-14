@@ -20,7 +20,7 @@
                     <thead>
                         <tr>
                             <th scope="col">S#</th>
-                            <th scope="col">Lieueeeeeeeeeeeee de départ</th>
+                            <th scope="col">Lieu de départ</th>
                             <th scope="col">Lieu d'arrivée</th>
                             <th scope="col">Date</th>
                             <th scope="col">Heure</th>
