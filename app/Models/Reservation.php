@@ -12,7 +12,7 @@ class Reservation extends Model
     protected $fillable = [
         'LieuDepart',
         'LieuArriver',
-        'Date',
+        'Dat',
         'Heure'
     ];
 }
