@@ -1,252 +1,218 @@
-/*create*/
-
+/* Styles de base */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #ffffff; /* Couleur de fond douce */
+    color: #000000; /* Couleur du texte */
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    transition: all 0.3s ease-in-out; /* Transition fluide */
 }
 
-/* Style pour les cartes */
-.card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+h1{
+    text-align: center;
+   color: #002533;
 }
 
-.card-header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 8px 8px 0 0;
+.card.form{
+    padding: 80px;
 }
 
-/* Boutons */
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
-    padding: 5px 15px;
-    border-radius: 4px;
+/* Styles généraux pour les boutons */
+.btn {
+    text-decoration: none; /* Supprimer la décoration de texte par défaut */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Styles spécifiques pour le bouton 'Show' */
+.btn-warning {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles spécifiques pour le bouton 'Edit' */
+.btn-primary {
+    background-color: #337ab7;
+    color: white;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #286090;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Formulaires et contrôles */
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
+/* Styles spécifiques pour le bouton 'Delete' */
+.btn-danger {
+    background-color: #d9534f;
+    color: white;
 }
 
-.form-control.is-invalid {
-    border-color: #dc3545;
+.btn-danger:hover {
+    background-color: #c9302c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.text-danger {
-    color: #dc3545;
+.btn-create {
+    background-color: #002533;
+    display: block; /* Change l'affichage en block pour permettre le centrage horizontal */
+    color: rgb(255, 255, 255);
+    text-align: center;
 }
 
-.label {
-    margin-bottom: 5px;
-    display: block;
+.btn-create:hover {
+        background-color: #cb6f28;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
 }
 
-/* Disposition spécifique pour les éléments en ligne et les labels */
+.btn-Back{
+    background-color: #337ab7;
+    color: white;
+    display: block; /* Change l'affichage en block pour permettre le centrage horizontal */
+    width: 80px; /* Définir une largeur fixe */
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+/* Styles pour les icônes dans les boutons */
+.btn i {
+    margin-right: 5px;
+}
+
+
+/* Styles de disposition */
 .row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
-.col-md-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.col-md-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-}
-
-.text-md-end {
-    text-align: right;
-}
-
-.text-start {
+.table thead tr {
+    background-color: #002533;
+    color: #ffffff;
     text-align: left;
 }
 
-/* Marges et positionnement */
-.mt-3 {
-    margin-top: 1rem;
+.table th,
+.table td {
+    padding: 12px 15px;
 }
 
-.mb-3 {
-    margin-bottom: 1rem;
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
 }
 
-.float-start {
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
+.col-md-8 {
+    max-width: 800px; /* Limiter la largeur */
+}
+
+/* Carte avec ombres */
+.card {
+    border: none;
+    border-radius: 8px; /* Coins légèrement plus arrondis */
+    padding: 80px; /* Plus d'espace */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+.card-header {
+    display: block; /* Change l'affichage en block pour permettre le centrage horizontal */
+    border-radius: 8px;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    background: linear-gradient(to right, #dee3e7, #002533); /* Dégradé pour la carte */
+    color: rgb(255, 255, 255); /* Texte blanc sur la carte */
+    text-align: center;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    width: 50;
+    margin: 0 auto;
+}
+
+/* .float-start {
     float: left;
-}
+} */
 
 .float-end {
     float: right;
 }
 
-
-
-/* index */
-
-
-/* Style global pour la page */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-    margin: 0;
-    padding: 20px;
-}
-
-/* Style pour les cartes */
-.card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    overflow: hidden; /* Ajout pour gérer le bord arrondi de l'en-tête */
-}
-
-.card-header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 15px;
-}
-
-/* Boutons */
-.btn {
-    padding: 5px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 14px; /* Légère augmentation de la taille du texte pour les boutons */
-}
-
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-}
-
-.btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
-    color: #fff;
-}
-
-.btn-success:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
-}
-
-.btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
-    color: #212529;
-}
-
-.btn-warning:hover {
-    background-color: #e0a800;
-    border-color: #d39e00;
-}
-
-.btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    color: #fff;
-}
-
-.btn-danger:hover {
-    background-color: #c82333;
-    border-color: #bd2130;
-}
-
-/* Formulaires et contrôles */
-.form-control {
-    width: 100%;
-    padding: 10px;
+/* Styles des formulaires */
+input.form-control {
     border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    border-radius: 8px; /* Coins plus arrondis */
+    padding: 10px; /* Plus de rembourrage */
+    transition: border-color 0.3s ease-in-out;
 }
 
-.form-control.is-invalid {
-    border-color: #dc3545;
+input.form-control:focus {
+    border-color: #007bff; /* Couleur lors de la mise au point */
+    outline: none;
 }
 
+input[type='submit'] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px; /* Plus de rembourrage */
+    border-radius: 8px; /* Coins plus arrondis */
+    transition: background-color 0.3s ease-in-out;
+}
+
+input[type='submit']:hover {
+    background-color: #0056b3; /* Changement de couleur lors du hover */
+}
+
+/* Messages d'erreur */
 .text-danger {
-    color: #dc3545;
+    color: red; /* Couleur rouge pour les messages d'erreur */
 }
 
-/* Disposition spécifique pour les éléments en ligne et les labels */
-.row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+/* Réactivité */
+@media (max-width: 576px) {
+    .col-md-4 {
+        text-align: start;
+        }
+
+    .offset-md-5 {
+        margin-left: 0; /* Ajustement du formulaire sur les écrans plus petits */
+    }
 }
-
-.col-md-4, .col-md-6, .col-md-8, .col-md-12 {
-    flex: 0 0 auto; /* Adaptation pour que les colonnes prennent la largeur selon leur contenu */
-}
-
-.text-md-end {
-    text-align: right;
-}
-
-.text-start {
-    text-align: left;
-}
-
-/* Tableaux */
-.table {
-    width: 100%;
-    margin-bottom: 1rem;
-    color: #212529;
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.table-bordered {
-    border: 1px solid #dee2e6;
-}
-
-.table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6;
-}
-
-/* Marges et positionnement */
-.mt-3 { margin-top: 1rem; }
-.mb-3 { margin-bottom: 1rem; }
-.my-2 { margin-top: 0.5rem; margin-bottom: 0.5rem; }
-
-
-/* login */
-
 

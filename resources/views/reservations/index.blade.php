@@ -11,11 +11,9 @@
             {{ $message }}
         </div>
         @endif
-
+        <h1>Réservation Liste</h1>
         <div class="card">
-            <div class="card-header">Reservation List</div>
             <div class="card-body">
-                <a href="{{ route('reservations.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Réservation</a>
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
