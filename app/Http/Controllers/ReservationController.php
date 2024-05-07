@@ -7,7 +7,6 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
-use Illuminate\Support\Facades\Auth; // Assurez-vous d'importer la facade Auth si nécessaire
 
 
 class ReservationController extends Controller
@@ -18,7 +17,7 @@ class ReservationController extends Controller
     public function index(): View
     {
         return view('reservations.index', [
-            'reservations' => Reservation::latest()->paginate(3)
+            'reservations' => Reservation::latest()->paginate(10)
         ]);
     }
 

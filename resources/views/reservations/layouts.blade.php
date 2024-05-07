@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggler = document.querySelector('.navbar-toggler');
+        const menu = document.querySelector('.right-box');
+
+        toggler.addEventListener('click', function() {
+            menu.classList.toggle('show');
+        });
+    });
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Covoiturage</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('css/layouts.css') }}">
 </head>
 
 <body>
-
-
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col">
-                <h3 class="text-center">Covoiturage ESNA</h3>
+    <div class="">
+        <!-- Utilisation d'une seule ligne pour le titre et la barre de navigation -->
+        <div class="navbar">
+            <div class="left-box">
+                <a href="{{ url('/') }}">
+                    <img src="/img/logo2.png" width="215" alt="logo_ESNA">
+                </a>
             </div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <div class="container">
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav mx-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/') }}">Accueil</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('reservations.index') }}">Réservations</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('reservations.create') }}">Créer ma réservation</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <div class="right-box">
+                <a href="{{ url('/') }}">Accueil</a>
+                <a href="{{ route('reservations.index') }}">Réservations</a>
+                <a href="{{ route('reservations.create') }}">Créer ma réservation</a>
+                <a href="{{ route('login') }}">
+                    <img src="/img/connexion.png" width="20" alt="Login">
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button">
+                <span class="menu-trigger" style="visibility: visible;">
+                    <i class="menu-trigger-bar top" style="transform: matrix(0.70711, -0.7071, 0.7071, 0.70711, 0, 0);"></i>
+                    <i class="menu-trigger-bar middle" style="transform: matrix(0.70711, -0.7071, 0.7071, 0.70711, 0, 0);"></i>
+                    <i class="menu-trigger-bar bottom" style="transform: matrix(0.70711, -0.7071, 0.7071, 0.70711, 0, 0);"></i>
+                </span>
+            </button>
         </div>
+
+        <!-- Section de contenu -->
         @yield('content')
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
 </body>
 
 </html>
