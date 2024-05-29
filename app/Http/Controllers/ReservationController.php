@@ -8,7 +8,6 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
 
-
 class ReservationController extends Controller
 {
     /**
@@ -16,13 +15,12 @@ class ReservationController extends Controller
      */
     public function index(): View
     {
-        return view('reservations.index', [
-            'reservations' => Reservation::latest()->paginate(10)
-        ]);
+        $reservations = Reservation::with('user')->latest()->paginate(10);
+        return view('reservations.index', compact('reservations'));
     }
 
     /**
-     * Show the form for creating a new resource.<
+     * Show the form for creating a new resource.
      */
     public function create(): View
     {
@@ -34,9 +32,11 @@ class ReservationController extends Controller
      */
     public function store(StoreReservationRequest $request): RedirectResponse
     {
-        Reservation::create($request->all());
+        $data = $request->validated();
+        $data['user_id'] = auth()->id();
+        Reservation::create($data);
         return redirect()->route('reservations.index')
-            ->withSuccess('New reservation is added successfully.');
+            ->withSuccess('Nouvelle réservation créée avec succès.');
     }
 
 
@@ -50,9 +50,7 @@ class ReservationController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Reservation $reservation): View
     {
         return view('reservations.edit', [
@@ -67,9 +65,12 @@ class ReservationController extends Controller
     {
         $reservation->update($request->all());
         return redirect()->back()
-            ->withSuccess('Reservation is updated successfully.');
+            ->withSuccess('La réservation a été mise à jour avec succès.');
     }
 
+    /**
+     * Show the home page.
+     */
     public function home(Reservation $reservation): View
     {
         return view('reservations.home', [
@@ -84,6 +85,6 @@ class ReservationController extends Controller
     {
         $reservation->delete();
         return redirect()->route('reservations.index')
-            ->withSuccess('Reservation is deleted successfully.');
+            ->withSuccess('La réservation a été supprimée avec succès.');
     }
 }

@@ -35,6 +35,7 @@
                 <a href="{{ route('reservations.create') }}">Créer ma réservation</a>
                 <a href="{{ route('login') }}">
                     <img src="/img/connexion.png" width="20" alt="Login">
+
                 </a>
             </div>
             <button class="navbar-toggler" type="button">
