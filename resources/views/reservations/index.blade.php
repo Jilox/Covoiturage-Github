@@ -18,6 +18,7 @@
                     <thead>
                         <tr>
                             <th scope="col">S#</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Lieu de départ</th>
                             <th scope="col">Lieu d'arrivée</th>
                             <th scope="col">Date</th>
@@ -26,13 +27,15 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @forelse ($reservations as $reservation)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $reservation->user ? $reservation->user->name : 'N/A' }}</td>
                             <td>{{ $reservation->LieuDepart }}</td>
                             <td>{{ $reservation->LieuArriver }}</td>
                             <td>{{ $reservation->Date }}</td>
-                            <td>{{ Carbon\Carbon::parse($reservation->Heure)->format('H:i') }} </td>
+                            <td>{{ $reservation->Heure }}</td>
                             <td>
                                 <form action="{{ route('reservations.destroy', $reservation->id) }}" method="post">
                                     @csrf
@@ -43,11 +46,12 @@
                                     <a href="{{ route('reservations.edit', $reservation->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
 
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this reservation?');"><i class="bi bi-trash"></i> Delete</button>
+
                                 </form>
                             </td>
                         </tr>
                         @empty
-                        <td colspan="6">
+                        <td colspan="7">
                             <span class="text-danger">
                                 <strong>No Reservation Found!</strong>
                             </span>

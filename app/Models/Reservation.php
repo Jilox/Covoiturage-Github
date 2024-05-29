@@ -13,6 +13,12 @@ class Reservation extends Model
         'LieuDepart',
         'LieuArriver',
         'Date',
-        'Heure'
+        'Heure',
+        'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
