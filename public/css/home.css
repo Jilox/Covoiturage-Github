@@ -1,8 +1,8 @@
 /* Styles de base */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #002533; /* Couleur de fond douce */
-    color: #333; /* Couleur du texte */
+    background-color: #00b7ff; /* Couleur de fond douce */
+    background-image: url('/img/batiment_ESNA.jpg'); /* Image en arrière-plan */
     margin: 0;
     padding: 0;
 }
