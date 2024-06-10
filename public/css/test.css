@@ -57,7 +57,7 @@ h1{
     border: none;
     border-radius: 8px; /* Coins légèrement plus arrondis */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
-    /* margin: 3rem auto; */
+    margin: 3rem auto;
     /* width: 40%; */
 }
 
@@ -111,6 +111,15 @@ input[type='submit'] {
 
 input[type='submit']:hover {
     background-color: #CB8A04; /* Changement de couleur lors du hover */
+}
+
+select.form-control{
+    border: 1px solid #000000;
+    border-radius: 4px; /* Coins plus arrondis */
+    transition: 0.2s ease-in-out;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
 }
 
 

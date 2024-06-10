@@ -205,6 +205,13 @@ input[type='submit']:hover {
     color: red; /* Couleur rouge pour les messages d'erreur */
 }
 
+h5{
+    text-align: center;
+    font-size: 2em; /* Vous pouvez ajuster cette valeur selon vos besoins */
+    font-weight: bold; /* Optionnel, pour rendre le texte plus gras */
+}
+
+
 /* Réactivité */
 @media (max-width: 576px) {
     .col-md-4 {

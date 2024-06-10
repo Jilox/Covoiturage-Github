@@ -47,6 +47,10 @@
 
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this reservation?');"><i class="bi bi-trash"></i> Delete</button>
 
+                                    <!-- Bouton Carte -->
+                                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#mapModal" onclick="showMap('{{ $reservation->LieuDepart }}', '{{ $reservation->LieuArriver }}')">
+                                        <i class="bi bi-geo-alt"></i> Carte
+                                    </button>
                                 </form>
                             </td>
                         </tr>
@@ -66,5 +70,56 @@
         </div>
     </div>
 </div>
+
+<!-- Modal pour la carte -->
+<div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mapModalLabel">Carte</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="map" style="height: 400px; width: 100%;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script pour afficher la carte -->
+<script>
+    function showMap(lieuDepart, lieuArriver) {
+        var villes = @json($villes); // Vous devez avoir cette variable disponible avec toutes les villes et leurs coordonnées
+
+        var depart = villes.find(ville => ville.nom === lieuDepart);
+        var arriver = villes.find(ville => ville.nom === lieuArriver);
+
+        var map = L.map('map').setView([48.8566, 2.3522], 6); // Centrer sur la France
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        if (depart) {
+            var departMarker = L.marker([depart.latitude, depart.longitude]).addTo(map)
+                .bindPopup(depart.nom);
+            map.setView([depart.latitude, depart.longitude], 10);
+        }
+
+        if (arriver) {
+            var arriverMarker = L.marker([arriver.latitude, arriver.longitude]).addTo(map)
+                .bindPopup(arriver.nom);
+        }
+
+        if (depart && arriver) {
+            var bounds = L.latLngBounds([departMarker.getLatLng(), arriverMarker.getLatLng()]);
+            map.fitBounds(bounds);
+        }
+    }
+</script>
 
 @endsection

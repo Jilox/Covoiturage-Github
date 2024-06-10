@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Models\Ville;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreReservationRequest;
@@ -16,7 +17,8 @@ class ReservationController extends Controller
     public function index(): View
     {
         $reservations = Reservation::with('user')->latest()->paginate(10);
-        return view('reservations.index', compact('reservations'));
+        $villes = Ville::all(); // Récupère toutes les villes
+        return view('reservations.index', compact('reservations', 'villes'));
     }
 
     /**
@@ -24,7 +26,8 @@ class ReservationController extends Controller
      */
     public function create(): View
     {
-        return view('reservations.create');
+        $villes = Ville::all(); // Récupère toutes les villes
+        return view('reservations.create', compact('villes'));
     }
 
     /**
@@ -39,7 +42,6 @@ class ReservationController extends Controller
             ->withSuccess('Nouvelle réservation créée avec succès.');
     }
 
-
     /**
      * Display the specified resource.
      */
@@ -50,11 +52,15 @@ class ReservationController extends Controller
         ]);
     }
 
-
+    /**
+     * Show the form for editing the specified resource.
+     */
     public function edit(Reservation $reservation): View
     {
+        $villes = Ville::all(); // Récupère toutes les villes
         return view('reservations.edit', [
-            'reservation' => $reservation
+            'reservation' => $reservation,
+            'villes' => $villes
         ]);
     }
 
@@ -69,16 +75,6 @@ class ReservationController extends Controller
     }
 
     /**
-     * Show the home page.
-     */
-    public function home(Reservation $reservation): View
-    {
-        return view('reservations.home', [
-            'reservation' => $reservation
-        ]);
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy(Reservation $reservation): RedirectResponse
@@ -86,5 +82,15 @@ class ReservationController extends Controller
         $reservation->delete();
         return redirect()->route('reservations.index')
             ->withSuccess('La réservation a été supprimée avec succès.');
+    }
+
+    /**
+     * Show the home page.
+     */
+    public function home(Reservation $reservation): View
+    {
+        return view('reservations.home', [
+            'reservation' => $reservation
+        ]);
     }
 }

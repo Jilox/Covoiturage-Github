@@ -18,6 +18,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Covoiturage</title>
     <link rel="stylesheet" href="{{ asset('css/layouts.css') }}">
+    <link rel="icon" href="{{ asset('/img/Logo_ESNA_CMJN.jpg') }}" type="image/jpg">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -35,8 +41,9 @@
                 <a href="{{ route('reservations.create') }}">Créer ma réservation</a>
                 <a href="{{ route('login') }}">
                     <img src="/img/connexion.png" width="20" alt="Login">
-
                 </a>
+
+
             </div>
             <button class="navbar-toggler" type="button">
                 <span class="menu-trigger" style="visibility: visible;">
