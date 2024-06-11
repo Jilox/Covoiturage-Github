@@ -1,4 +1,4 @@
-*{
+* {
     font-family: "Roboto", sans-serif;
 }
 
@@ -9,8 +9,6 @@
     padding: 0; /* Pas de padding par défaut */
     box-sizing: border-box; /* Inclut padding et borders dans le calcul de la largeur/hauteur */
 }
-
-
 
 /* Styles pour la navbar */
 .navbar {
@@ -23,6 +21,15 @@
     height: 50px;
     box-sizing: border-box;  /* Assurez-vous que padding ne dépasse pas la largeur */
     text-transform: uppercase;
+    position: fixed; /* Fixer la navbar en haut de la page */
+    top: 0; /* Positionner en haut */
+    left: 0; /* Aligner à gauche */
+    z-index: 1000; /* S'assurer que la navbar reste au-dessus des autres éléments */
+}
+
+/* Ajouter un padding en haut du body pour compenser la hauteur de la navbar */
+body {
+    padding-top: 50px; /* Même hauteur que la navbar */
 }
 
 /* Styles pour les liens dans la navbar */
@@ -79,10 +86,9 @@
         position: absolute;
     }
 
-    .right-box.show a{
+    .right-box.show a {
         padding: 1rem;
     }
-
 }
 
 /* Styling the toggle button bars */
@@ -94,7 +100,3 @@
     margin: 5px auto; /* Center horizontally and add vertical space */
     transition: 0.3s ease; /* Smooth transform transition */
 }
-
-
-
-

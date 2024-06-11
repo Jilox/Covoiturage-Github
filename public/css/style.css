@@ -89,7 +89,11 @@ h1{
     margin-right: 5px;
 }
 
+.btn-info{
+    background-color: #222224;
+    color: white;
 
+}
 /* Styles de disposition */
 .row {
     margin-top: 20px;
@@ -114,7 +118,10 @@ h1{
 .table th,
 .table td {
     padding: 12px 15px;
+    text-align: center;
+
 }
+
 
 .table tbody tr {
     border-bottom: 1px solid #dddddd;

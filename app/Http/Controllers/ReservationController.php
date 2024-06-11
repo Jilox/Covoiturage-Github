@@ -6,6 +6,7 @@ use App\Models\Reservation;
 use App\Models\Ville;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
 
@@ -92,5 +93,17 @@ class ReservationController extends Controller
         return view('reservations.home', [
             'reservation' => $reservation
         ]);
+    }
+
+    /**
+     * Display the map view for specific locations.
+     */
+    public function showCarte(Request $request): View
+    {
+        $lieuDepart = $request->input('lieuDepart');
+        $lieuArriver = $request->input('lieuArriver');
+        $villes = Ville::all(); // Assurez-vous d'avoir toutes les villes disponibles avec leurs coordonnées
+
+        return view('reservations.carte', compact('lieuDepart', 'lieuArriver', 'villes'));
     }
 }

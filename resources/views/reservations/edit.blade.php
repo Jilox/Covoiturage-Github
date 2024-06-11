@@ -19,14 +19,25 @@
             @method("PUT")
 
             <div class="row">
-                <input type="text" class="form-control @error('LieuDepart') is-invalid @enderror" id="LieuDepart" name="LieuDepart" value="{{ $reservation->LieuDepart }}">
+                <select class="form-control @error('LieuDepart') is-invalid @enderror" id="LieuDepart" name="LieuDepart">
+                    <option value="">Sélectionnez le lieu de départ</option>
+                    @foreach($villes as $ville)
+                    <option value="{{ $ville->nom }}" {{ old('LieuDepart') == $ville->nom ? 'selected' : '' }}>{{ $ville->nom }}</option>
+                    @endforeach
+                </select>
                 @if ($errors->has('LieuDepart'))
                 <span class="text-danger">{{ $errors->first('LieuDepart') }}</span>
                 @endif
             </div>
 
+            <!-- LieuArriver -->
             <div class="row">
-                <input type="text" class="form-control @error('LieuArriver') is-invalid @enderror" id="LieuArriver" name="LieuArriver" value="{{ $reservation->LieuArriver }}">
+                <select class="form-control @error('LieuArriver') is-invalid @enderror" id="LieuArriver" name="LieuArriver">
+                    <option value="">Sélectionnez le lieu d'arrivée</option>
+                    @foreach($villes as $ville)
+                    <option value="{{ $ville->nom }}" {{ old('LieuArriver') == $ville->nom ? 'selected' : '' }}>{{ $ville->nom }}</option>
+                    @endforeach
+                </select>
                 @if ($errors->has('LieuArriver'))
                 <span class="text-danger">{{ $errors->first('LieuArriver') }}</span>
                 @endif
