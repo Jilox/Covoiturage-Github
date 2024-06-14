@@ -1,0 +1,136 @@
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Styles pour le container principal */
+.container {
+    width: 100%; /* Le container prend toute la largeur */
+    margin: 0 auto; /* Centrage du container */
+    padding: 0; /* Pas de padding par défaut */
+    box-sizing: border-box; /* Inclut padding et borders dans le calcul de la largeur/hauteur */
+}
+
+/* Styles pour la navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #002533;
+    color: white;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;  /* Assurez-vous que padding ne dépasse pas la largeur */
+    text-transform: uppercase;
+    position: fixed; /* Fixer la navbar en haut de la page */
+    top: 0; /* Positionner en haut */
+    left: 0; /* Aligner à gauche */
+    z-index: 1000; /* S'assurer que la navbar reste au-dessus des autres éléments */
+}
+
+/* Ajouter un padding en haut du body pour compenser la hauteur de la navbar */
+body {
+    padding-top: 50px; /* Même hauteur que la navbar */
+}
+
+/* Styles pour les liens dans la navbar */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;  /* Ajouter une marge à droite pour chaque lien */
+    font-size: 14.4px;
+    transition: 0.2s ease-in-out;
+    padding: 1rem;
+}
+
+.navbar a:hover {
+    color: #CB8A04; /* Changement de couleur au survol */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Ombre textuelle pour un effet visuel */
+}
+
+.navbar h3 {
+    color: white; /* Texte blanc pour le titre */
+    margin: 0; /* Pas de marge externe */
+    font-size: 24px; /* Taille de la police du titre augmentée */
+}
+
+/* Responsive navbar toggle button */
+.navbar-toggler {
+    display: none; /* Hidden by default */
+}
+
+/* Responsive visibility for navbar items */
+@media (max-width: 768px) {
+    .navbar-toggler {
+        display: block; /* Show button on small screens */
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        height: 100%;
+        z-index: 10;
+    }
+
+    .right-box {
+        display: none; /* Initially hide navigation links on small screens */
+    }
+
+    .right-box.show {
+        display: flex; /* Show when toggled */
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        justify-content: center; /* Center items */
+        width: 100%; /* Full width */
+        /* height: 100%; */
+        top: 0;
+        left: 0;
+        background-color: #002533;
+        position: absolute;
+    }
+
+    .right-box.show a {
+        padding: 1rem;
+    }
+}
+
+/* Styling the toggle button bars */
+.menu-trigger-bar {
+    display: block;
+    width: 30px; /* Adjust width of toggle bars */
+    height: 3px; /* Adjust height of toggle bars */
+    background-color: white;
+    margin: 5px auto; /* Center horizontally and add vertical space */
+    transition: 0.3s ease; /* Smooth transform transition */
+}
+
+/* Styles pour le footer */
+.footer {
+    background-color: #002533; /* Même couleur que la navbar */
+    color: white;
+    padding: 20px 0; /* Espacement en haut et en bas */
+    text-align: center;
+    bottom: 0; /* Positionné en bas */
+    width: 100%; /* Largeur complète */
+    z-index: 1000; /* Assurez-vous que le footer reste au-dessus des autres éléments */
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px; /* Marge entre les liens */
+    transition: color 0.2s ease-in-out;
+}
+
+.footer a:hover {
+    color: #CB8A04; /* Changement de couleur au survol */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Ombre textuelle pour un effet visuel */
+
+}
+
+.footer p {
+    margin: 5px 0; /* Marges minimales pour les paragraphes */
+    font-size: 14px; /* Taille de la police ajustée */
+}
+
+/* Styles pour le container principal afin de ne pas chevaucher le footer */
+.main-content {
+    padding-bottom: 60px; /* Espacement en bas pour éviter le chevauchement avec le footer */
+}
