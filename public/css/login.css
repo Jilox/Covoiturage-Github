@@ -111,5 +111,6 @@ body {
 @media (max-width: 480px) {
     .register {
         padding: 20px 15px;
+        width: 85%
     }
 }

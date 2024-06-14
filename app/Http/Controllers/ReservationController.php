@@ -13,6 +13,15 @@ use App\Http\Requests\UpdateReservationRequest;
 class ReservationController extends Controller
 {
     /**
+     * Show the home page.
+     */
+    public function home(): View
+    {
+        $villes = Ville::all(); // Récupère toutes les villes
+        return view('reservations.home', compact('villes'));
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index(): View
@@ -86,16 +95,6 @@ class ReservationController extends Controller
     }
 
     /**
-     * Show the home page.
-     */
-    public function home(Reservation $reservation): View
-    {
-        return view('reservations.home', [
-            'reservation' => $reservation
-        ]);
-    }
-
-    /**
      * Display the map view for specific locations.
      */
     public function showCarte(Request $request): View
@@ -105,5 +104,27 @@ class ReservationController extends Controller
         $villes = Ville::all(); // Assurez-vous d'avoir toutes les villes disponibles avec leurs coordonnées
 
         return view('reservations.carte', compact('lieuDepart', 'lieuArriver', 'villes'));
+    }
+
+    /**
+     * Search for reservations based on departure and arrival locations.
+     */
+    public function search(Request $request): View
+    {
+        $query = Reservation::query();
+
+        if ($request->filled('LieuDepart')) {
+            $query->where('LieuDepart', $request->input('LieuDepart'));
+        }
+
+        if ($request->filled('LieuArriver')) {
+            $query->where('LieuArriver', $request->input('LieuArriver'));
+        }
+
+        $reservations = $query->with('user')->paginate(10); // Utilisez la pagination ici
+        $villes = Ville::all();
+        $searchPerformed = true; // Indique qu'une recherche a été effectuée
+
+        return view('reservations.index', compact('reservations', 'villes', 'searchPerformed'));
     }
 }

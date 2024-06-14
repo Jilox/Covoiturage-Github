@@ -1,16 +1,25 @@
 * {
     font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Styles pour le container principal */
+html, body {
+    height: 100%; /* Assure que le body prend toute la hauteur de la page */
+    margin: 0;
+}
+
 .container {
-    width: 100%; /* Le container prend toute la largeur */
-    margin: 0 auto; /* Centrage du container */
-    padding: 0; /* Pas de padding par défaut */
-    box-sizing: border-box; /* Inclut padding et borders dans le calcul de la largeur/hauteur */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Assure que le container prend au moins toute la hauteur de la fenêtre */
 }
 
-/* Styles pour la navbar */
+.content {
+    flex: 1; /* Prend l'espace restant disponible */
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -19,49 +28,45 @@
     color: white;
     width: 100%;
     height: 50px;
-    box-sizing: border-box;  /* Assurez-vous que padding ne dépasse pas la largeur */
     text-transform: uppercase;
-    position: fixed; /* Fixer la navbar en haut de la page */
-    top: 0; /* Positionner en haut */
-    left: 0; /* Aligner à gauche */
-    z-index: 1000; /* S'assurer que la navbar reste au-dessus des autres éléments */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-/* Ajouter un padding en haut du body pour compenser la hauteur de la navbar */
 body {
-    padding-top: 50px; /* Même hauteur que la navbar */
+    padding-top: 50px; /* Compense la hauteur de la navbar */
 }
 
-/* Styles pour les liens dans la navbar */
 .navbar a {
     color: white;
     text-decoration: none;
-    margin-right: 15px;  /* Ajouter une marge à droite pour chaque lien */
+    margin-right: 15px;
     font-size: 14.4px;
     transition: 0.2s ease-in-out;
     padding: 1rem;
 }
 
 .navbar a:hover {
-    color: #CB8A04; /* Changement de couleur au survol */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Ombre textuelle pour un effet visuel */
+    color: #CB8A04;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .navbar h3 {
-    color: white; /* Texte blanc pour le titre */
-    margin: 0; /* Pas de marge externe */
-    font-size: 24px; /* Taille de la police du titre augmentée */
+    color: white;
+    margin: 0;
+    font-size: 24px;
 }
 
-/* Responsive navbar toggle button */
 .navbar-toggler {
-    display: none; /* Hidden by default */
+    display: none;
 }
 
 /* Responsive visibility for navbar items */
 @media (max-width: 768px) {
     .navbar-toggler {
-        display: block; /* Show button on small screens */
+        display: block;
         border: none;
         background: transparent;
         cursor: pointer;
@@ -70,18 +75,15 @@ body {
     }
 
     .right-box {
-        display: none; /* Initially hide navigation links on small screens */
+        display: none;
     }
 
     .right-box.show {
-        display: flex; /* Show when toggled */
-        flex-direction: column; /* Stack items vertically */
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center; /* Center items */
-        width: 100%; /* Full width */
-        height: 100%;
-        top: 0;
-        left: 0;
+        justify-content: center;
+        width: 100%;
         background-color: #002533;
         position: absolute;
     }
@@ -91,12 +93,21 @@ body {
     }
 }
 
-/* Styling the toggle button bars */
 .menu-trigger-bar {
     display: block;
-    width: 30px; /* Adjust width of toggle bars */
-    height: 3px; /* Adjust height of toggle bars */
+    width: 30px;
+    height: 3px;
     background-color: white;
-    margin: 5px auto; /* Center horizontally and add vertical space */
-    transition: 0.3s ease; /* Smooth transform transition */
+    margin: 5px auto;
+    transition: 0.3s ease;
+}
+
+.footer {
+    background-color: #002533;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
 }

@@ -4,15 +4,16 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('reservations.home');
-});
+Route::get('/', [ReservationController::class, 'home'])->name('home');
 
 // Route pour afficher la carte
 Route::get('/carte', [ReservationController::class, 'showCarte'])->name('carte.show');
 
 // Resource pour les réservations
 Route::resource('reservations', ReservationController::class);
+
+// Route pour la recherche de réservations
+Route::get('/search', [ReservationController::class, 'search'])->name('reservations.search');
 
 // Route pour le tableau de bord
 Route::get('/dashboard', function () {

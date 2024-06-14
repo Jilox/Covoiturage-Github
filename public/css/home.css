@@ -1,66 +1,160 @@
-/* Styles de base */
+/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #002533; /* Couleur de fond douce */
-    color: #333; /* Couleur du texte */
+    font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f8f8f8; /* Light grey background */
+    color: #333; /* Dark grey text */
     margin: 0;
     padding: 0;
+    transition: all 0.3s ease-in-out;
 }
 
+h1, h2, h4, p {
+    color: #333; /* Dark grey text */
+}
 
-/* Grille */
 .container {
-    width: 100%;
-    max-width: 1140px; /* Largeur maximale */
-    margin: 0 auto; /* Centrer le conteneur */
-    padding: 0 15px; /* Rembourrage */
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Jumbotron */
 .jumbotron {
-    background-color: #fff; /* Couleur de fond du jumbotron */
-    padding: 20px; /* Rembourrage */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
-    text-align: center; /* Alignement du texte */
-    margin: 1rem;
+    margin-top: 4%;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);    padding: 60px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .jumbotron h1 {
-    font-size: 2.5rem; /* Taille de la police pour le titre */
-    margin-bottom: 20px; /* Marge inférieure */
+    font-size: 2.5rem; /* Larger heading */
+    font-weight: 600; /* Semi-bold */
 }
 
 .jumbotron p {
-    font-size: 1.2rem; /* Taille de la police pour le texte */
-    margin-bottom: 20px; /* Marge inférieure */
+    font-size: 1.25rem; /* Larger paragraph text */
+    margin-top: 20px;
 }
 
-.jumbotron .btn-primary {
-    background-color: #007bff; /* Couleur de fond du bouton */
-    border-color: #007bff; /* Couleur de la bordure du bouton */
-    color: #fff; /* Couleur du texte du bouton */
-    padding: 10px 20px; /* Rembourrage du bouton */
-    border-radius: 5px; /* Coins arrondis du bouton */
-    text-decoration: none; /* Supprimer la décorastion de texte */
+.btn-primary {
+    background: linear-gradient(135deg, #002533, #005bb5);    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px; /* Fully rounded corners */
+    font-size: 1.2rem; /* Larger button text */
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
 }
 
-.jumbotron .btn-primary:hover {
-    background-color: #0056b3; /* Couleur de fond du bouton au survol */
-    border-color: #0056b3; /* Couleur de la bordure du bouton au survol */
+.btn-primary:hover {
+    background-color: #005bb5; /* Darker blue on hover */
 }
 
-/* Réactivité */
-@media (max-width: 576px) {
-    .container {
-        padding: 0 10px; /* Rembourrage réduit sur petits écrans */
+
+.search-bar {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Gradient background */
+    padding: 20px 30px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin-bottom: 40px;
+    margin-top: 4%;
+    text-align: center;
+}
+
+.search-bar .form-control {
+    border-radius: 30px; /* Fully rounded corners */
+    border: 1px solid #ddd; /* Light grey border */
+    padding: 15px;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Gradient background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.search-bar .form-control:focus {
+    border-color: #007aff; /* Apple's blue on focus */
+    box-shadow: 0 0 10px rgba(0, 122, 255, 0.2); /* Soft blue glow */
+    background: linear-gradient(135deg, #e0f7fa, #ffffff); /* Gradient on focus */
+    outline: none;
+}
+
+.search-bar .btn {
+    border-radius: 30px; /* Fully rounded corners */
+    background: linear-gradient(135deg, #002533, #005bb5);    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar .btn:hover {
+    background: linear-gradient(135deg, #005bb5, #003e7e); /* Darker gradient on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+
+.search-bar .col-md-3 {
+    margin-block: 1rem;
+}
+
+.search-bar .form-row {
+    text-align: center;
+}
+
+.how-it-works, .why-choose-us, .testimonials, .newsletter, .social-media {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);    padding: 40px 30px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+blockquote {
+    background: #f9f9f9; /* Light grey background */
+    border-left: 5px solid #007aff; /* Blue border */
+    padding: 20px;
+    margin: 20px 0;
+}
+
+blockquote p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+footer {
+    background: #f9f9f9; /* Light grey background */
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #007aff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .search-bar .form-row {
+        flex-direction: column;
     }
 
-    .jumbotron h1 {
-        font-size: 2rem; /* Taille de la police pour le titre sur petits écrans */
-    }
-
-    .jumbotron p {
-        font-size: 1rem; /* Taille de la police pour le texte sur petits écrans */
+    .search-bar .col-md-3, .search-bar .col-md-2 {
+        width: 100%;
+        margin-bottom: 10px;
     }
 }

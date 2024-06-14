@@ -1,12 +1,21 @@
-<!-- resources/views/reservations/layouts.blade.php (ou le fichier layout principal) -->
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggler = document.querySelector('.navbar-toggler');
+        const menu = document.querySelector('.right-box');
+
+        toggler.addEventListener('click', function() {
+            menu.classList.toggle('show');
+        });
+    });
+</script>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" contant="ie=edge">
     <title>Covoiturage</title>
     <link rel="stylesheet" href="{{ asset('css/layouts.css') }}">
     <link rel="icon" href="{{ asset('/img/Logo_ESNA_CMJN.jpg') }}" type="image/jpg">
@@ -15,21 +24,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggler = document.querySelector('.navbar-toggler');
-            const menu = document.querySelector('.right-box');
-
-            toggler.addEventListener('click', function() {
-                menu.classList.toggle('show');
-            });
-        });
-    </script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="">
         <!-- Utilisation d'une seule ligne pour le titre et la barre de navigation -->
         <div class="navbar">
             <div class="left-box">
@@ -38,12 +36,10 @@
                 </a>
             </div>
             <div class="right-box">
-                <a href="{{ url('/') }}">Accueil</a>
-                <a href="{{ route('reservations.index') }}">Réservations</a>
-                <a href="{{ route('reservations.create') }}">Créer ma réservation</a>
-                <a href="{{ route('login') }}">
-                    <img src="/img/connexion.png" width="20" alt="Login">
+
                 </a>
+
+
             </div>
             <button class="navbar-toggler" type="button">
                 <span class="menu-trigger" style="visibility: visible;">
@@ -55,11 +51,7 @@
         </div>
 
         <!-- Section de contenu -->
-        <div class="content">
-            @yield('content')
-        </div>
-
-        @include('reservations.footer')
+        @yield('content')
     </div>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
